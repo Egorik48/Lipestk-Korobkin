@@ -7,46 +7,12 @@ from PyQt6.QtCore import QRectF
 from PyQt6.QtGui import QColor, QPainter, QPen
 from PyQt6.QtWidgets import QWidget, QApplication
 
-template = '''<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
- <class>Form</class>
- <widget class="QWidget" name="Form">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>1179</width>
-    <height>792</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>460</x>
-     <y>590</y>
-     <width>231</width>
-     <height>121</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>кнопка</string>
-   </property>
-  </widget>
- </widget>
- <resources/>
- <connections/>
-</ui>
-'''
-
 
 class Square1(QWidget):
     def __init__(self):
         super().__init__()
-        f = io.StringIO(template)
-        uic.loadUi(f, self)
+        uic.loadUi("UI.ui", self)
+        self.do_paint = True
 
         self.color = QColor(255, 255, 0)
 
