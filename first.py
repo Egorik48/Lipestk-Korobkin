@@ -6,15 +6,14 @@ from PyQt6 import uic
 from PyQt6.QtCore import QRectF
 from PyQt6.QtGui import QColor, QPainter, QPen
 from PyQt6.QtWidgets import QWidget, QApplication
+from UI import Ui_Form
 
-
-class Square1(QWidget):
+class Square1(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
-        uic.loadUi("UI.ui", self)
-        self.do_paint = True
+        self.setupUi(self)
 
-        self.color = QColor(255, 255, 0)
+        self.color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
 
         self.pushButton.clicked.connect(self.trigger_paint)
 
