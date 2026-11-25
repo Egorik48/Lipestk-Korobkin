@@ -1,8 +1,6 @@
-import io
 import random
 import sys
 
-from PyQt6 import uic
 from PyQt6.QtCore import QRectF
 from PyQt6.QtGui import QColor, QPainter, QPen
 from PyQt6.QtWidgets import QWidget, QApplication
@@ -12,9 +10,6 @@ class Square1(QWidget, Ui_Form):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-
-        self.color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
-
         self.pushButton.clicked.connect(self.trigger_paint)
 
     def trigger_paint(self):
@@ -23,6 +18,7 @@ class Square1(QWidget, Ui_Form):
 
     def paintEvent(self, event):
         if self.do_paint:
+            self.color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
             qp = QPainter()
             qp.begin(self)
             self.draw_ell(qp)
